@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .fp{
+            height: 120vh;
+            /* border: 10px solid black; */
+            background-color: #bcaaa4;
+        }
+
+        .fp>.row>div{
+            height: 350px;
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            outline: 1px solid gainsboro;
+            outline-offset: 3px;
+            z-index: 201;
+            box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.516);  
+                 
+        }
+    
+        .fp>.row>div>*{
+            color: white;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            z-index: 99;
+        }
+        .fp>.row>div>img{
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+            position: relative;
+            
+        }
+        .fp>.row>div::after{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.268);
+            position: absolute;
+            top: 0;left: 0;
+            z-index: 100;
+            border-radius: 10px;
+        }
+        .fp>.row>div>h2{
+            text-transform: capitalize;
+            font-size: 35px;
+            position: absolute;
+            bottom: -5px;left: 10px;
+            z-index: 200;
+            transition: .4s;
+        }
+        .fp>.row>div>p{
+            position: absolute;
+            bottom: -80px;left: 10px;
+            opacity: 0;
+            transition: .4s;
+            z-index: 200;
+        }
+        .fp>.row>div:hover>h2{
+            bottom: 70px;
+        }
+        .fp>.row>div:hover>p{
+            bottom: -5px;
+            opacity: 1;
+        }
+ 
+    
+    </style>
+</head>
+<body>
+    <section class="fp container ">
+        <!-- <span id="spn"></span> -->
+        <div class="row justify-content-center align-items-center ">
+            <div id="d1" class="col-2 border m-5 p-0">
+                <img class="col-12 h-100 " src="img/canyon.avif" alt="">
+                <h2>canyons</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, molestiae!</p>
+            </div>
+            <div id="d2" class="col-2 border m-5 p-0">
+                <img class="col-12 h-100" src="img/beach.avif" alt="">
+                <h2>beaches</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eaque!</p>
+            </div>
+            <div id="d3" class="col-2 border m-5 p-0">
+                <img class="col-12 h-100" src="img/trees.avif" alt="">
+                <h2>trees</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, architecto!</p>
+            </div>
+            <div id="d4" class="col-2 border m-5 p-0">
+                <img class="col-12 h-100" src="img/lakes.avif" alt="">
+                <h2>lakes</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, voluptatum.</p>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    let self = document.querySelectorAll('.fp>.row>div')
+    self[0].offsetTop
+    self[0].offsetLeft
+    self[1].offsetTop
+    self[1].offsetLeft
+    self[2].offsetTop
+    self[2].offsetLeft
+    self[3].offsetTop
+    self[3].offsetLeft
+    self[0].addEventListener('mousemove',(e)=>{
+        let x= ((e.clientX)-(self[0].offsetLeft))/10
+        let y= ((e.clientY)-(self[0].offsetTop))/10
+        self[0].style.transform='perspective(800px)rotatey('+(x-10)+'deg)rotatex('+(y-17.5)+'deg)'
+       
+    })
+    self[0].addEventListener('mouseleave',(e)=>{
+        setTimeout(() => {
+            self[0].style.transform='rotateY(0deg)rotateX(0deg)'
+            self[0].style.transition='.1s'
+        }, 1000);
+        
+    })
+    self[1].addEventListener('mousemove',(e)=>{
+        let x= ((e.clientX)-(self[1].offsetLeft))/10
+        let y= ((e.clientY)-(self[1].offsetTop))/10
+        self[1].style.transform='perspective(800px)rotatey('+(x-10)+'deg)rotatex('+(y-17.5)+'deg)'
+
+    })
+    self[1].addEventListener('mouseleave',(e)=>{
+        setTimeout(() => {
+            self[1].style.transform='rotateY(0deg)rotateX(0deg)'
+            self[1].style.transition='.1s'
+        }, 1000);
+        
+    })
+    self[2].addEventListener('mousemove',(e)=>{
+        let x= ((e.clientX)-(self[2].offsetLeft))/10
+        let y= ((e.clientY)-(self[2].offsetTop))/10
+        self[2].style.transform='perspective(800px)rotatey('+(x-10)+'deg)rotatex('+(y-17.5)+'deg)'
+
+    })
+    self[2].addEventListener('mouseleave',(e)=>{
+        setTimeout(() => {
+            self[2].style.transform='rotateY(0deg)rotateX(0deg)'
+            self[2].style.transition='.1s'
+        }, 1000);
+        
+    })
+    self[3].addEventListener('mousemove',(e)=>{
+        let x= ((e.clientX)-(self[3].offsetLeft))/10
+        let y= ((e.clientY)-(self[3].offsetTop))/10
+        self[3].style.transform='perspective(800px)rotatey('+(x-10)+'deg)rotatex('+(y-17.5)+'deg)'
+
+    })
+    self[3].addEventListener('mouseleave',(e)=>{
+        setTimeout(() => {
+            self[3].style.transform='rotateY(0deg)rotateX(0deg)'
+            self[3].style.transition='.1s'
+        }, 1000);
+        
+    })
+
+
+
+</script>
+</html>
